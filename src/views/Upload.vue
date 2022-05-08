@@ -1,11 +1,11 @@
 <template>
-    <DefaultLayout>
+    <HeaderOnly>
         <template #content>
             <div id="upload">
                 <h2>Upload page</h2>
             </div>
         </template>
-    </DefaultLayout>
+    </HeaderOnly>
 </template>
 
 <script>

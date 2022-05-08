@@ -1,8 +1,8 @@
 <template>
-    <div :className="cx('wrapper')">
+    <div :class="cx('wrapper')">
         <Header />
-        <div :className="cx('container')">
-            <div :className="cx('content')">
+        <div :class="cx('container')">
+            <div :class="cx('content')">
                 <slot name="content"></slot>
             </div>
         </div>
@@ -14,12 +14,15 @@ import Header from '@/components/Layout/components/Header.vue';
 import classNames from 'classnames/bind';
 import styles from '@/assets/scss/DefaultLayout.module.scss';
 
-const cx = classNames.bind(styles);
-
 export default {
     name: 'HeaderOnly',
     components: {
         Header,
+    },
+    data() {
+        return {
+            cx: classNames.bind(styles),
+        };
     },
 };
 </script>

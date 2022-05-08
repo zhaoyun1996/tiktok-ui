@@ -1,9 +1,9 @@
 <template>
-    <div :className="cxWrapper">
+    <div :class="cx('wrapper')">
         <Header />
-        <div :className="cxContainer">
+        <div :class="cx('container')">
             <Sidebar />
-            <div :className="cxContent">
+            <div :class="cx('content')">
                 <slot name="content"></slot>
             </div>
         </div>
@@ -24,11 +24,8 @@ export default {
     },
 
     data() {
-        const cx = classNames.bind(styles);
         return {
-            cxWrapper: cx('wrapper'),
-            cxContainer: cx('container'),
-            cxContent: cx('content'),
+            cx: classNames.bind(styles),
         };
     },
 };

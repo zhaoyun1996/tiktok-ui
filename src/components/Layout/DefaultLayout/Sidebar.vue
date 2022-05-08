@@ -1,5 +1,5 @@
 <template>
-    <aside :className="cxWrapper">
+    <aside :class="cx('wrapper')">
         <h2>Sidebar</h2>
     </aside>
 </template>
@@ -11,9 +11,8 @@ import styles from '@/assets/scss/Sidebar.module.scss';
 export default {
     name: 'Sidebar',
     data() {
-        const cx = classNames.bind(styles);
         return {
-            cxWrapper: cx('wrapper'),
+            cx: classNames.bind(styles),
         };
     },
 };
