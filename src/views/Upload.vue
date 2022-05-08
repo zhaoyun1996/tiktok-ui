@@ -1,16 +1,19 @@
 <template>
-    <div id="upload">
-        <Header />
-        <h2>Upload page</h2>
-    </div>
+    <DefaultLayout>
+        <template #content>
+            <div id="upload">
+                <h2>Upload page</h2>
+            </div>
+        </template>
+    </DefaultLayout>
 </template>
 
 <script>
-import Header from '@/components/Layout/DefaultLayout/Header.vue';
+import HeaderOnly from '@/components/Layout/HeaderOnly/HeaderOnly.vue';
 export default {
-    name: 'Home',
+    name: 'Upload',
     components: {
-        Header,
+        HeaderOnly,
     },
 };
 </script>

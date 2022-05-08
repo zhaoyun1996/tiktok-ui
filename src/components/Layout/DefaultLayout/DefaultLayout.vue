@@ -1,9 +1,9 @@
 <template>
-    <div id="default-layout">
+    <div :className="cxWrapper">
         <Header />
-        <div class="container">
+        <div :className="cxContainer">
             <Sidebar />
-            <div class="content">
+            <div :className="cxContent">
                 <slot name="content"></slot>
             </div>
         </div>
@@ -11,13 +11,25 @@
 </template>
 
 <script>
-import Header from '@/components/Layout/DefaultLayout/Header.vue';
+import Header from '@/components/Layout/components/Header.vue';
 import Sidebar from '@/components/Layout/DefaultLayout/Sidebar.vue';
+import classNames from 'classnames/bind';
+import styles from '@/assets/scss/DefaultLayout.module.scss';
+
 export default {
     name: 'DefaultLayout',
     components: {
         Header,
         Sidebar,
+    },
+
+    data() {
+        const cx = classNames.bind(styles);
+        return {
+            cxWrapper: cx('wrapper'),
+            cxContainer: cx('container'),
+            cxContent: cx('content'),
+        };
     },
 };
 </script>

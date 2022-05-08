@@ -1,19 +1,20 @@
 <template>
-    <aside :className="cxWrapper">
-        <h2>Sidebar</h2>
-    </aside>
+    <header :className="cxWrapper">
+        <div :className="cxInner"></div>
+    </header>
 </template>
 
 <script>
 import classNames from 'classnames/bind';
-import styles from '@/assets/scss/Sidebar.module.scss';
+import styles from '@/assets/scss/Header.module.scss';
 
 export default {
-    name: 'Sidebar',
+    name: 'Header',
     data() {
         const cx = classNames.bind(styles);
         return {
             cxWrapper: cx('wrapper'),
+            cxInner: cx('inner'),
         };
     },
 };
