@@ -28,7 +28,14 @@
                     </div>
                 </template>
             </Popper>
-            <div :class="cx('actions')"></div>
+            <div :class="cx('actions')">
+                <Button text>
+                    <template #content>Upload</template>
+                </Button>
+                <Button primary>
+                    <template #content>Log in</template>
+                </Button>
+            </div>
         </div>
     </header>
 </template>
@@ -41,6 +48,7 @@ import styles from '@/assets/scss/Header.module.scss';
 import images from '@/assets/images';
 import AccountItem from '@/components/AccountItem/AccountItem.vue';
 import { Wrapper as PopperWrapper } from '@/components/Popper';
+import Button from '@/components/Button/Button.vue';
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -61,6 +69,7 @@ export default {
         Popper,
         AccountItem,
         PopperWrapper,
+        Button,
     },
     data() {
         return {
