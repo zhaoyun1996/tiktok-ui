@@ -35,6 +35,14 @@
                 <Button primary>
                     <template #content>Log in</template>
                 </Button>
+
+                <Menu :items="menuItems">
+                    <template #content>
+                        <button :class="cx('more-btn')">
+                            <FontAwesomeIcon icon="ellipsis-vertical" />
+                        </button>
+                    </template>
+                </Menu>
             </div>
         </div>
     </header>
@@ -49,32 +57,66 @@ import images from '@/assets/images';
 import AccountItem from '@/components/AccountItem/AccountItem.vue';
 import { Wrapper as PopperWrapper } from '@/components/Popper';
 import Button from '@/components/Button/Button.vue';
+import Menu from '@/components/Popper/Menu/Menu.vue';
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 /* import specific icons */
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
-
-/* import font awesome icon component */
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import {
+    faCircleQuestion,
+    faCircleXmark,
+    faEarthAsia,
+    faEllipsisVertical,
+    faKeyboard,
+    faMagnifyingGlass,
+    faSpinner,
+    faCheckCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 /* add icons to the library */
-library.add(faCircleXmark, faMagnifyingGlass, faSpinner);
+library.add(
+    faCircleQuestion,
+    faCircleXmark,
+    faEarthAsia,
+    faEllipsisVertical,
+    faKeyboard,
+    faMagnifyingGlass,
+    faSpinner,
+    faCheckCircle,
+);
 
 export default {
     name: 'Header',
     components: {
-        FontAwesomeIcon,
         Popper,
         AccountItem,
         PopperWrapper,
         Button,
+        Menu,
     },
     data() {
         return {
             cx: classNames.bind(styles),
             logoUrl: images.logo,
+            menuItems: [
+                {
+                    icon: 'earth-asia',
+                    component: 'FontAwesomeIcon',
+                    title: 'English',
+                },
+                {
+                    icon: 'circle-question',
+                    title: 'Feedback and help',
+                    component: 'FontAwesomeIcon',
+                    to: '/feedback',
+                },
+                {
+                    icon: 'keyboard',
+                    component: 'FontAwesomeIcon',
+                    title: 'Keyboard shortcuts',
+                },
+            ],
         };
     },
 };

@@ -19,23 +19,8 @@
 import classNames from 'classnames/bind';
 import styles from '@/assets/scss/AccountItem.module.scss';
 
-/* import the fontawesome core */
-import { library } from '@fortawesome/fontawesome-svg-core';
-
-/* import specific icons */
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-
-/* import font awesome icon component */
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
-/* add icons to the library */
-library.add(faCheckCircle);
-
 export default {
     name: 'AccountItem',
-    components: {
-        FontAwesomeIcon,
-    },
     data() {
         return {
             cx: classNames.bind(styles),

@@ -1,10 +1,14 @@
 <template>
     <component :is="comp" :class="cx(classes)" v-bind="propAttrs">
-        <span v-if="leftIcon" :class="cx('icon')">{{ leftIcon }}</span>
+        <span v-if="leftIcon" :class="cx('icon')">
+            <component :is="componentIcon" :icon="leftIcon" />
+        </span>
         <span :class="cx('title')">
             <slot name="content"></slot>
         </span>
-        <span v-if="rightIcon" :class="cx('icon')">{{ rightIcon }}</span>
+        <span v-if="rightIcon" :class="cx('icon')">
+            <component :is="componentIcon" :icon="rightIcon" />
+        </span>
     </component>
 </template>
 
@@ -69,9 +73,11 @@ export default {
         onClick: {
             type: Function,
         },
+        componentIcon: {
+            type: String,
+        },
     },
     mounted() {
-        console.log(this.attrs);
         const me = this;
 
         let primary = me.primary,

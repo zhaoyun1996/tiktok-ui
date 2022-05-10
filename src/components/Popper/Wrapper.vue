@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('wrapper')">
+    <div :class="cx('wrapper', className)">
         <slot name="content"></slot>
     </div>
 </template>
@@ -14,6 +14,11 @@ export default {
         return {
             cx: classNames.bind(styles),
         };
+    },
+    props: {
+        className: {
+            type: String,
+        },
     },
 };
 </script>
