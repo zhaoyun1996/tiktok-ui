@@ -36,7 +36,7 @@
                     <template #content>Log in</template>
                 </Button>
 
-                <Menu :items="menuItems">
+                <Menu :items="menuItems" :onChange="handleMenuChange">
                     <template #content>
                         <button :class="cx('more-btn')">
                             <FontAwesomeIcon icon="ellipsis-vertical" />
@@ -72,6 +72,7 @@ import {
     faMagnifyingGlass,
     faSpinner,
     faCheckCircle,
+    faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
 
 /* add icons to the library */
@@ -84,6 +85,7 @@ library.add(
     faMagnifyingGlass,
     faSpinner,
     faCheckCircle,
+    faChevronLeft,
 );
 
 export default {
@@ -104,6 +106,21 @@ export default {
                     icon: 'earth-asia',
                     component: 'FontAwesomeIcon',
                     title: 'English',
+                    children: {
+                        title: 'Language',
+                        data: [
+                            {
+                                type: 'language',
+                                code: 'en',
+                                title: 'English',
+                            },
+                            {
+                                type: 'language',
+                                code: 'vi',
+                                title: 'Tiếng Việt',
+                            },
+                        ],
+                    },
                 },
                 {
                     icon: 'circle-question',
@@ -118,6 +135,19 @@ export default {
                 },
             ],
         };
+    },
+    methods: {
+        /**
+         * Sự kiện khi chọn item trong menu
+         */
+        handleMenuChange(menuItem) {
+            switch (menuItem.type) {
+                case 'language':
+                    // Handle change language
+                    break;
+                default:
+            }
+        },
     },
 };
 </script>
